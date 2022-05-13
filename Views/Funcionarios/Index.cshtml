@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Emartim_CRUD.Models.Funcionario>
+
+
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>Emartim - Sistema de Funcionarios</h1>
+
+<p>
+
+</p>
+
+
+<nav>
+  <ul class="menu">
+            <li><a href="funcionarios/Create">Exibir Ativos</a></li>
+            <li><a href="funcionarios/Create">Novo Funcionario</a></li>           
+            <li><a href="funcionarios/Create">Novo Cargo</a></li>
+
+</ul>
+
+<table class="table" id="table-contatos">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Situacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Admissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_Admissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
